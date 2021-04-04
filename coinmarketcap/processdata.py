@@ -24,6 +24,7 @@ data['%_7d'] = data['%_7d'].str.replace(
 
 data.sort_values(['date', 'rank'], inplace=True)
 
+
 data = data[data['rank'] <= 20]
 data.to_csv('data.csv', index=False)
 data.to_excel('data.xlsx', index=False)
