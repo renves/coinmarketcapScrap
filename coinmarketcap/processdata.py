@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv('test.csv')
+data = pd.read_csv('raw_data.csv')
 
 data['date'] = pd.to_datetime(data['date'], format='%Y-%m-%d')
 
@@ -24,5 +24,6 @@ data['%_7d'] = data['%_7d'].str.replace(
 
 data.sort_values(['date', 'rank'], inplace=True)
 
+data = data[data['rank'] <= 20]
 data.to_csv('data.csv', index=False)
 data.to_excel('data.xlsx', index=False)
